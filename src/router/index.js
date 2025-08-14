@@ -2,6 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 
+// ルーターは中身のコンポーネントの差し替え
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -11,12 +13,19 @@ const routes = [
     component: HomeView
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    path: '/Todo',
+    name: 'Todo',
+    component: () => import(/* webpackChunkName: "Todo" */ '../views/DogView.vue')
+  },
+  {
+    path: '/favorites', 
+    name: 'favorite-page',
+    component: () => import(/* webpackChunkName: "favorite" */'../views/FavoriteView.vue')
+  },
+  {
+    path: '/Update', 
+    name: 'Update-page',
+    component: () => import(/* webpackChunkName: "Update" */'../views/UpdateView.vue')
   }
 ]
 
